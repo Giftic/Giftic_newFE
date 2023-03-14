@@ -132,6 +132,7 @@ export const NextLanding=()=>{return(<>
 <motion.div></motion.div>
 <motion.div></motion.div>
 <motion.div></motion.div>
+<motion.div></motion.div>
 
 </>)}
 
