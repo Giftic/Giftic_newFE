@@ -1,15 +1,17 @@
 import styled from '@emotion/styled';
 import {motion} from 'framer-motion';
 //Header
-export const Header = styled.div({width:'87%',
+export const Header = styled.div({width:'87vw',
 height:'auto',
 background:'#F2F5F0',
 display:'flex',
 justifyContent:'space-between',
-padding: '0 6.5%'});
+padding: '0 6.5%',zIndex: '0'});
+
+
   
 //giftic 로고이미지
-export const LogoImg = styled.img({width:'120px',
+export const LogoImg = styled.img({width:'120px', 
 height:'70px', padding:'2rem 0px'});
 
 //로그인화면 이동버튼 useNavigate('/login') e.handler달기;
@@ -57,17 +59,25 @@ export const StartText = styled.div({
 })
 export const StartButton = styled(motion.div)({
   width:'90px',height:'32px',fontSize:'1rem',
-  position:'absolute',top:'560px',
+  position:'absolute',top:'570px',
   zIndex:'2',
   lineHeight:'2rem',textAlign:'center',
-  background:'#B3C79D',color:'white',borderRadius:'1rem'
+  background:'#B3C79D',color:'white',borderRadius:'1rem',
 })
 
-export const Gifticon = styled.div({
-  width:'500px',height:'340px', backgroundImage: `url("/imgs/info_1st.png")`,zIndex:'1',position:'absolute',
-  top:'150%',right:'-45%',
+export const Gifticon = styled(motion.div)({
+  width:'500px',height:'340px', backgroundImage: `url("/imgs/info_1st.png")`,zIndex:'1',position:'absolute', transform:'translateY(17.5rem) rotate(10deg) translateX(1rem)', 
   backgroundRepeat:'no-repeat',backgroundPosition:'center',
   backgroundSize:'contain',boxSizing:'border-box'
 })
+export const LandingBox1 = styled(motion.div)({
+  width:'200px',height:'350px',
+  display:'flex',flexDirection:'column',
+  alignItems:'center',textAlign:'center',
+  opacity:'0.9',
+  borderRadius:'2rem', marginBottom: '2rem', padding: '0 2.5rem'
+})
 
-
+// export const ArrowIcon = styled(motion.div)({
+//   fontSize: '2rem',transform: 'rotate(180)',
+// })
