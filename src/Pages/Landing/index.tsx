@@ -15,15 +15,16 @@ import {
   // ArrowIcon
 } from "./styles";
 import { useNavigate} from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import {motion } from "framer-motion";
 import {css} from '@emotion/react';
 
+//헤더 컴포넌트 
 export const HeaderSet = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <Header onClick={()=>{navigate('/')}}>
-        <LogoImg src="/imgs/logo.png"></LogoImg>
+      <Header>
+        <LogoImg onClick={()=>{navigate('/')}}src="/imgs/logo.png"></LogoImg>
         <LoginSkipContainer>
           <LoginButton>
             <div
@@ -73,14 +74,12 @@ const Home = () => {
   return (
     <div>
       <HeaderSet></HeaderSet>
-      <div style={{ width: "100%", height: "auto" }}>
+      <div style={{ width: "100%", height: '100vh' }}>
         <motion.div
           exit={{ opacity: 0, transition: { duration: 0.3 } }}
           style={{
-            width: "100%",
-            height: "800px",
             backgroundColor:
-              "linear-gradient(60deg, #F1F3EE 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box",
+              "linear-gradient(180deg, #F1F3EE 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box",
           }}
         >
           {/* <AnimatePresence> */}
@@ -107,7 +106,7 @@ const Home = () => {
                     쉽고 간단하게 기부를 시작하세요
                   </h3>
                 </div>
-                <Gifticon initial={{y:'17.5rem', translateX:'1rem'}} whileHover={{
+                <Gifticon initial={{translateX:'1rem'}} whileHover={{
                   x:[-5,5,-5,5],
                   transition:{ duration: 1, x: {yoyo: 2} }}}></Gifticon>
               </StartText>
@@ -136,28 +135,29 @@ const Home = () => {
 
 // '/landing'페이지 컴포넌트
 export const NextLanding=()=>{
-  const HoverVariants = {hover:{scale: 1.07}}
+  const HoverVariants = {hover:{scale: 1.07} }
+  const navigate =useNavigate();
   return(<div>
     {/* 헤더컴포넌트 */}
 <HeaderSet></HeaderSet>
 <motion.div css={css`
 background-image:url('/imgs/index_Phone.png');
-background-size: contain;
+background-size: 136%;
 background-repeat:no-repeat;
-transform:translateY(-25px);
-background-position: center;
-width: 100%;
-height: 800px;
+background-position: center center;
+width: 100vmax;
+height: calc(100vh);
 position:absolute;
-z-index: 2;
-scale:2.4;	pointer-events: none; 
+dipslay:flex;
+z-index: 1;
+scale:1;	pointer-events: none; 
 `
 }>
 
 </motion.div>
 {/* gradient 백그라운드(flex-container) */}
-<div css={css`width:100vw;
-height: calc(100vh - 134px);
+<div onClick={()=>{navigate('/')}} css={css`width:100vw;
+height: calc(100vh);
 background: rgb(245,246,242);
 background: linear-gradient(180deg, rgba(245,246,242,1) 0%, rgba(255,255,255,1) 100%);
 display:flex; 
@@ -166,6 +166,11 @@ align-items:center;
 flex-wrap:wrap;
 `}>
 
+<div css={css`width:130px; height:130px;
+background-image: url('/imgs/left.png');
+background-repeat:no-repeat;
+background-size:cover;
+`}></div>
   {/* 이미지박스 */}
   <LandingBox1 variants={HoverVariants} whileHover="hover"
   css={css`background: linear-gradient(0deg, rgba(255,255,255,1) 50%, rgba(234,237,235,1) 50%); z-index:2;
@@ -211,6 +216,11 @@ flex-wrap:wrap;
       <br></br><h1>따뜻한 마음을 나누세요</h1></span>
       </h1>
     </LandingBox1>
+    <div css={css`width:130px; height:130px;
+background-image: url('/imgs/right.png');
+background-repeat:no-repeat;
+background-size:cover;
+`}></div>
     </div>
 </div>)}
 
