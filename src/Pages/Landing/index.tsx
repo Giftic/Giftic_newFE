@@ -140,21 +140,7 @@ export const NextLanding=()=>{
   return(<div>
     {/* 헤더컴포넌트 */}
 <HeaderSet></HeaderSet>
-<motion.div css={css`
-background-image:url('/imgs/index_Phone.png');
-background-size: 136%;
-background-repeat:no-repeat;
-background-position: center center;
-width: 100vmax;
-height: calc(100vh);
-position:absolute;
-dipslay:flex;
-z-index: 1;
-scale:1;	pointer-events: none; 
-`
-}>
 
-</motion.div>
 {/* gradient 백그라운드(flex-container) */}
 <div onClick={()=>{navigate('/')}} css={css`width:100vw;
 height: calc(100vh);
@@ -171,8 +157,11 @@ background-image: url('/imgs/left.png');
 background-repeat:no-repeat;
 background-size:cover;
 `}></div>
-  {/* 이미지박스 */}
-  <LandingBox1 variants={HoverVariants} whileHover="hover"
+
+  {/* 1st */}
+  <LandingBox1 variants={HoverVariants} whileHover="hover" 
+  // initial,animate prop의 x와 y값을 조정하면 초기위치를 지정해줄 수 있음
+initial={{opacity: 0, zIndex:'3', x: "25vw" ,y: "0%" }} animate={{opacity: 1, x:"0", y: "0%", transition:{duration:1, ease: 'easeInOut' }}}
   css={css`background: linear-gradient(0deg, rgba(255,255,255,1) 50%, rgba(234,237,235,1) 50%); z-index:2;
   `}>
   <div css={css` margin-top:50px;
@@ -186,7 +175,11 @@ background-size:cover;
       <br></br><h1>따뜻한 마음을 나누세요</h1></span>
       </h1>
     </LandingBox1>
+
+    {/* 2nd */}
     <LandingBox1 variants={HoverVariants} whileHover="hover"
+    initial={{y:"-100%"}}
+    animate={{ y:"0%",transition:{type: 'spring',duration: 1, stiffness:250}}}
     css={css`background: linear-gradient(0deg, rgba(255,255,255,1) 50%, rgba(234,237,235,1) 50%); z-index:2;
   `}>
   <div css={css` margin-top:50px;
@@ -201,7 +194,24 @@ background-size:cover;
       <br></br><h1>따뜻한 마음을 나누세요</h1></span>
       </h1>
     </LandingBox1>
-    <LandingBox1 variants={HoverVariants} whileHover="hover"
+{/* 아이폰 배경을 2번째 순서의 요소로 배치 - framer 적용위해 */}
+    <motion.div initial={{opacity:0}} animate={{transition:{ delay:0.5,duration:1}, opacity:1}}css={css`
+background-image:url('/imgs/index_Phone.png');
+background-size: 136%;
+background-repeat:no-repeat;
+background-position: center center;
+width: 100vmax;
+height: calc(100vh);
+position:absolute;
+dipslay:flex;
+z-index: 1;
+scale:1;	pointer-events: none; 
+`
+}>
+</motion.div>
+
+    <LandingBox1 variants={HoverVariants} whileHover="hover" initial={{y:"-100%"}}
+    animate={{ y:"0%",transition:{type: 'spring',duration: 1, stiffness:200}}}
     css={css`background: linear-gradient(0deg, rgba(255,255,255,1) 50%, rgba(234,237,235,1) 50%); z-index:2;
   `}>
   <div css={css` margin-top:50px;
@@ -216,6 +226,7 @@ background-size:cover;
       <br></br><h1>따뜻한 마음을 나누세요</h1></span>
       </h1>
     </LandingBox1>
+ 
     <div css={css`width:130px; height:130px;
 background-image: url('/imgs/right.png');
 background-repeat:no-repeat;
