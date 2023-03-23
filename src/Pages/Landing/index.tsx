@@ -154,7 +154,7 @@ flex-wrap:wrap;
 
 <div css={css`width:130px; height:130px;
 background-image: url('/imgs/left.png');
-background-repeat:no-repeat;
+background-repeat:no-repeat;ㅇ
 background-size:cover;
 `}></div>
 
@@ -251,7 +251,7 @@ const Step1 = {
     position: absolute;
     top: 30%;
     right: 21%;
-    scale: 3.8;
+    scale: 3.2;
     z-index:-1;
     width:250px; height:250px;
     background-size: contain;
@@ -262,7 +262,7 @@ const Step1 = {
     top: 60%;
     right: -5%;
     z-index:-2;
-    scale: 3.0;
+    scale: 2.5;
     width:250px; height:250px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -272,14 +272,14 @@ const Step1 = {
     bottom: -10%;
     right: 22%;
     z-index:-2;
-    scale: 1.8;
+    scale: 1.5;
     width:250px; height:250px;
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url('/imgs/Bubble.png')`,
   Gesture: css`
     top: 19%;
-    left: 25%;
+    left: 22%;
     position: relative;
     transform: rotate(0.95turn);
     z-index:1;
@@ -301,7 +301,7 @@ const Step2 = {
   position: absolute;
   top: 33%;
   right: 9%;
-  scale: 3.9;
+  scale: 3.2;
   z-index:-1;
   width:250px; height:250px;
   background-size: contain;
@@ -311,7 +311,7 @@ const Step2 = {
   position: absolute;
   bottom: 23.4%;
   left: 48%;
-  scale: 2.85;
+  scale: 2.2;
   z-index:-2;
   width:250px; height:250px;
   background-size: contain;
@@ -321,7 +321,7 @@ const Step2 = {
   position: absolute;
   bottom: -8%;
   right: 22%;
-  scale: 1.8;
+  scale: 1.4;
   z-index:-2;
   width:250px; height:250px;
   background-size: contain;
@@ -344,57 +344,56 @@ const Step3 = {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    height:100vh;
+    width: 100vw;
   `,
   Bubble1: css `
   position: absolute;
-  bottom: 40%;
-  right: 40%;
+  top: 50%;
+  right: 23%;
+  scale: 3.2;
   z-index:-1;
-  background-size: auto;
+  width:250px; height:250px;
+  background-size: contain;
   background-repeat: no-repeat;
-  background-image: url('/imgs/Bubble.png');`,
-
+  background-image: url('/imgs/Bubble.png')`,
   Bubble2: css`
-    position: absolute;
-    top: 17%;
-    right: 3%;
-    scale: 2.6;
-    z-index:-2;
-    width:250px; height:250px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url('/imgs/Bubble.png');`,
-
+  position: absolute;
+  top:20%;
+  right: 0%;
+  scale: 2.2;
+  z-index:-2;
+  width:250px; height:250px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('/imgs/Bubble.png')`,
   Bubble3: css`
-    position: absolute;
-    bottom: -10%;
-    right: -7%;
-    scale: 1.8;
-    z-index:-2;
-    width:250px; height:250px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url('/imgs/Bubble.png');
-  `,
+  position: absolute;
+  bottom: -8%;
+  right: -5%;
+  scale: 1.4;
+  z-index:-2;
+  width:250px; height:250px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('/imgs/Bubble.png')`,
   Gesture: css`
   position: relative;
   left:4%;
   bottom: 5%;
   scale: 0.55;
   z-index:1;
-  width:100%; height:100%;
+  width:250px; height:250px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url('/imgs/Three.png');
-  `,
+  background-image: url('/imgs/Three.png')`,
 };
 const Step = {
   step: css`
     position: absolute;
     left:8%;
     top: 30%;
-    scale: 0.80;
+    scale: 0.60;
     z-index:1;
     width:400px; height:400px;
     background-size: contain;
@@ -410,31 +409,31 @@ const Step = {
     background-repeat:no-repeat;
     background-size:cover;
     z-index:2;`,
-    title: css`
-    position: relative;
-    left: 21%;
-    top:1%;
-    color: white;
-    z-index:2;
-    font-size: xxx-large;
+  title1: css`
+      position: relative;
+      left: 21%;
+      top:1%;
+      color: white;
+      z-index:2;
+      font-size: xxx-large;
     `,
-    title2: css`
-      position: absolute;
-      left: 13.7%;
-      top:42%;
-      text-align: left;
-      font: normal normal bold 36px/32px Elice DigitalBaeum OTF;
-      letter-spacing: -0.36px;
-      color: #292929;
-      z-index:2;
+  title2: css`
+        position: relative;
+        top: 10%;
+        left: 23%;
+        font: normal normal bold 36px/32px Elice DigitalBaeum OTF;
+        letter-spacing: -0.36px;
+        color: #292929;
+        z-index:2;
       `,
-    des: css`
-      position: absolute;
-      left: 13.7%;
-      top:46%;
-      color: black;
-      z-index:2;
-      font: normal normal normal 22px/32px Noto Sans CJK KR;
+  des: css`
+        position: relative;
+        left:23%;
+        top:15%;
+        color: black;
+        z-index:2;
+        white-space:nowrap;
+        font: normal normal normal 22px/32px Noto Sans CJK KR;
     `,
 }
 
@@ -451,22 +450,30 @@ export const StepLanding1 = () => {
               "linear-gradient(180deg, #F1F3EE 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box",
       }}>
       <HeaderSet></HeaderSet>
-      <div css={Step1.container}>  
-        <div css = {Step.step}>
-          <div css = {Step.title}>STEP 1</div>
-        </div>
-        <div css = {Step.title2}>기부 게시글을 등록하세요.</div>
-        <div css = {Step.des}>실시간으로 업데이트되는 기부를 확인하세요.</div>
-        <div css={Step1.Bubble1}>
-          <div css={Step1.Gesture}>
+      <div css={Step1.container}> 
+        <div css = {css`
+        position: absolute;
+        left:8%;
+        top: 18%;
+        width:40vw; 
+        height: 50vh;`}>
+          <div css = {Step.step}>
+            <div css = {Step.title1}>STEP 1</div>
+            <div css = {Step.title2}>기부 게시글을 등록하세요.</div>
+            <div css = {Step.des}>실시간으로 업데이트되는 기부를 확인하세요.</div>
           </div>
         </div>
+        <div css={Step1.Bubble1}>
+          <div css={Step1.Gesture}></div>
+        </div>
+
         <div css={Step1.Bubble2}></div>
         <div css={Step1.Bubble3}></div>
+
         </div>
-        <div css={Step.button} onClick={() => {
-            navigate("/step2");
-          }}></div>
+          <div css={Step.button} onClick={() => {
+              navigate("/step2");
+            }}></div>
       </div>
   );
 };
@@ -483,24 +490,46 @@ export const StepLanding2 = () => {
       "linear-gradient(180deg, #F1F3EE 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box",}}>
       <HeaderSet></HeaderSet>
       <div css={Step2.container}>
-      <div css = {Step.step}>
-      <div css = {Step.title}>STEP2</div>
+      <div css = {css`
+        position: absolute;
+        left:8%;
+        top: 14%;
+        width:40vw; 
+        height: 50vh;
+        opacity: 0.3;`}>
+          <div css = {Step.step}>
+            <div css = {Step.title1}>STEP 1</div>
+            <div css = {Step.title2}>기부 게시글을 등록하세요.</div>
+          </div>
         </div>
-        <div css = {Step.title2}>기부 게시글을 등록하세요.</div>
+
+      <div css = {css`
+        position: absolute;
+        left:8%;
+        top: 30%;
+        width:40vw; 
+        height: 50vh;`}>
+      <div css = {Step.step}>
+        <div css = {Step.title1}>STEP2</div>
+        <div css = {Step.title2}>기부를 진행하고 신청하세요.</div>
         <div css = {Step.des}>실시간으로 업데이트되는 기부를 확인하세요.</div>
+        </div>
+        </div>
         <div css={Step2.Bubble1}>
           <div css={Step2.Gesture}>
           </div>
         </div>
         <div css={Step2.Bubble2}></div>
         <div css={Step2.Bubble3}></div>
-        <div css={Step.button} onClick={() => {
-            navigate("/step3");
+        <div css={Step.button} 
+        onClick={() => {navigate("/step3");
           }}></div>
         </div>
       </div>
   );
 };
+
+
 export const StepLanding3 = () => {
   const navigate = useNavigate();
   return (
@@ -510,14 +539,35 @@ export const StepLanding3 = () => {
       width:"100vw",
       overflow:"hidden",
       backgroundColor:
-      "linear-gradient(180deg, #F1F3EE 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box",}} >
+      "linear-gradient(180deg, #F1F3EE 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box",}}>
       <HeaderSet></HeaderSet>
-      <div css={Step3.container}>
-      <div css = {Step.step}>
-      <div css = {Step.title}>STEP3</div>
+      <div css={Step2.container}>
+      <div 
+      css = {css`
+        position: absolute;
+        left:8%;
+        top: 14%;
+        width:40vw; 
+        height: 50vh;
+        opacity: 0.3;`}>
+          <div css = {Step.step}>
+            <div css = {Step.title1}>STEP 2</div>
+            <div css = {Step.title2}>기부를 진행하고 신청하세요.</div>
+          </div>
         </div>
-        <div css = {Step.title2}>기부 게시글을 등록하세요.</div>
-        <div css = {Step.des}>실시간으로 업데이트되는 기부를 확인하세요.</div>
+
+      <div css = {css`
+        position: absolute;
+        left:8%;
+        top: 30%;
+        width:40vw; 
+        height: 50vh;`}>
+      <div css = {Step.step}>
+        <div css = {Step.title1}>STEP3</div>
+        <div css = {Step.title2}>따뜻한 마음을 받으세요.</div>
+        <div css = {Step.des}>매칭이 완료되면 기프티콘으로 마음을 받아요</div>
+        </div>
+        </div>
         <div css={Step3.Bubble1}>
           <div css={Step3.Gesture}>
           </div>
@@ -531,5 +581,6 @@ export const StepLanding3 = () => {
       </div>
   );
 };
+
 
 export default Home;
