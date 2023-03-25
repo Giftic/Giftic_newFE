@@ -72,16 +72,12 @@ const Home = () => {
   };
   const navigate = useNavigate();
   return (
-    <div>
+    <div  css = {css`background: linear-gradient(to top, #FFFFFF 50%, #F1F3EE 100%);
+    height: 100vh;`}>
       <HeaderSet></HeaderSet>
       <div style={{ width: "100%", height: '100vh' }}>
         <motion.div
-          exit={{ opacity: 0, transition: { duration: 0.3 } }}
-          style={{
-            backgroundColor:
-              "linear-gradient(180deg, #F1F3EE 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box",
-          }}
-        >
+          exit={{ opacity: 0, transition: { duration: 0.3 } }}>
           {/* <AnimatePresence> */}
             <IphoneContainer initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <StartText>
@@ -241,18 +237,12 @@ scale:1;	pointer-events: none;
 
 
 const Step1 = {
-  container: css`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  `,
   Bubble1: css `
     position: absolute;
     top: 30%;
     right: 21%;
     scale: 3.2;
-    z-index:-1;
+    z-index:1;
     width:250px; height:250px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -261,7 +251,7 @@ const Step1 = {
     position: absolute;
     top: 60%;
     right: -5%;
-    z-index:-2;
+    z-index:1;
     scale: 2.5;
     width:250px; height:250px;
     background-size: contain;
@@ -271,7 +261,7 @@ const Step1 = {
     position: absolute;
     bottom: -10%;
     right: 22%;
-    z-index:-2;
+    z-index:1;
     scale: 1.5;
     width:250px; height:250px;
     background-size: contain;
@@ -289,20 +279,12 @@ const Step1 = {
     background-image: url('/imgs/One.png');`,
 };
 const Step2 = {
-  container: css`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height:100vh;
-    width: 100vw;
-  `,
   Bubble1: css `
   position: absolute;
   top: 33%;
   right: 9%;
   scale: 3.2;
-  z-index:-1;
+  z-index:1;
   width:250px; height:250px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -312,7 +294,7 @@ const Step2 = {
   bottom: 23.4%;
   left: 48%;
   scale: 2.2;
-  z-index:-2;
+  z-index:1;
   width:250px; height:250px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -322,7 +304,7 @@ const Step2 = {
   bottom: -8%;
   right: 22%;
   scale: 1.4;
-  z-index:-2;
+  z-index:1;
   width:250px; height:250px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -339,20 +321,12 @@ const Step2 = {
   background-image: url('/imgs/Two.png')`,
 };
 const Step3 = {
-  container: css`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height:100vh;
-    width: 100vw;
-  `,
   Bubble1: css `
   position: absolute;
   top: 50%;
   right: 23%;
   scale: 3.2;
-  z-index:-1;
+  z-index:1;
   width:250px; height:250px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -362,7 +336,7 @@ const Step3 = {
   top:20%;
   right: 0%;
   scale: 2.2;
-  z-index:-2;
+  z-index:1;
   width:250px; height:250px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -372,7 +346,7 @@ const Step3 = {
   bottom: -8%;
   right: -5%;
   scale: 1.4;
-  z-index:-2;
+  z-index:1;
   width:250px; height:250px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -389,6 +363,13 @@ const Step3 = {
   background-image: url('/imgs/Three.png')`,
 };
 const Step = {
+  container: css `
+    position: relative;
+    height: 100vh;
+    width: 100vw; 
+    overflow: hidden;
+    background: linear-gradient(to top, #F1F3EE 0%, #F1F3EE 100%);
+    `,
   step: css`
     position: absolute;
     left:8%;
@@ -441,22 +422,14 @@ export const StepLanding1 = () => {
   const navigate = useNavigate();
 
   return (
-    <div style={{
-      position:"relative", 
-      height:"100vh",
-      width:"100vw",
-      overflow:"hidden",
-      backgroundColor:
-              "linear-gradient(180deg, #F1F3EE 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box",
-      }}>
+    <div css = {Step.container}>
       <HeaderSet></HeaderSet>
-      <div css={Step1.container}> 
         <div css = {css`
         position: absolute;
         left:8%;
         top: 18%;
         width:40vw; 
-        height: 50vh;`}>
+        height:50vh;`}>
           <div css = {Step.step}>
             <div css = {Step.title1}>STEP 1</div>
             <div css = {Step.title2}>기부 게시글을 등록하세요.</div>
@@ -466,11 +439,8 @@ export const StepLanding1 = () => {
         <div css={Step1.Bubble1}>
           <div css={Step1.Gesture}></div>
         </div>
-
         <div css={Step1.Bubble2}></div>
         <div css={Step1.Bubble3}></div>
-
-        </div>
           <div css={Step.button} onClick={() => {
               navigate("/step2");
             }}></div>
@@ -486,10 +456,10 @@ export const StepLanding2 = () => {
       height:"100vh",
       width:"100vw",
       overflow:"hidden",
-      backgroundColor:
-      "linear-gradient(180deg, #F1F3EE 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box",}}>
+      background:
+      "linear-gradient(to top, #F1F3EE 0%, #F1F3EE 100%)",}}>
       <HeaderSet></HeaderSet>
-      <div css={Step2.container}>
+      
       <div css = {css`
         position: absolute;
         left:8%;
@@ -524,11 +494,10 @@ export const StepLanding2 = () => {
         <div css={Step.button} 
         onClick={() => {navigate("/step3");
           }}></div>
-        </div>
+
       </div>
   );
 };
-
 
 export const StepLanding3 = () => {
   const navigate = useNavigate();
@@ -538,10 +507,10 @@ export const StepLanding3 = () => {
       height:"100vh",
       width:"100vw",
       overflow:"hidden",
-      backgroundColor:
-      "linear-gradient(180deg, #F1F3EE 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box",}}>
+      background:
+      "linear-gradient(to top, #F1F3EE 0%, #F1F3EE 100%)",
+      }}>
       <HeaderSet></HeaderSet>
-      <div css={Step2.container}>
       <div 
       css = {css`
         position: absolute;
@@ -578,7 +547,6 @@ export const StepLanding3 = () => {
             navigate("/home");
           }}></div>
         </div>
-      </div>
   );
 };
 

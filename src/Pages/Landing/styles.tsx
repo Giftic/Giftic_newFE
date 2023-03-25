@@ -3,7 +3,6 @@ import {motion} from 'framer-motion';
 //Header
 export const Header = styled.div({width:'87vw',
 height:'auto',
-background:'#F2F5F0',
 display:'flex',
 justifyContent:'space-between',
 position:'absolute',

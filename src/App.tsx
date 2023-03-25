@@ -4,6 +4,7 @@ import {NextLanding, StepLanding1, StepLanding2, StepLanding3 } from './Pages/La
 import {Routes,Route, useLocation} from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import {css} from '@emotion/react';
+import Main from './components/main';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
     <Route path="/step1" element={<StepLanding1/>}></Route>
     <Route path="/step2" element={<StepLanding2/>}></Route>
     <Route path="/step3" element={<StepLanding3/>}></Route>
+    <Route path="/home" element={<Main/>}></Route>
   </Routes>
   </AnimatePresence>
   </>
