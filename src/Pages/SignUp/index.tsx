@@ -1,3 +1,5 @@
+// import {css} from '@emotion/react';
+import { User } from '../../@typings/db';
 import useInput from '../../Hooks/useInput';
 // import { IUser } from '@typings/db';
 import fetcher from '../../@utils/fetcher';
@@ -6,6 +8,8 @@ import axios, { AxiosError } from 'axios';
 import { useMutation, useQuery } from 'react-query';
 import { Success, Form, Error, Label, Input, LinkContainer, Button, Header } from './styles';
 import { Link, useNavigate } from 'react-router-dom';
+import { LogoImg } from '../Landing/styles';
+// import { QueryClient } from 'react-query';
 
 // interface CustomError extends Error {
 //   // name: string; 
@@ -19,16 +23,12 @@ import { Link, useNavigate } from 'react-router-dom';
 //   };
 // }
 
-
-interface IUser {
-  id: number;
-  nickname:string;
-  email:string;
-}
-
+//회원가입 여부 조회 
 const SignUp = () => {
+  const navigate = useNavigate();
+  // 로그인상태여부 조회 data(email,nickname,id) | false
   const { isLoading, isSuccess, status, isError, data, error } = useQuery('user', () =>
-    fetcher({ queryKey: '/api/v1/users/join' }),
+    fetcher({ queryKey: '/api/users' }),
   );
 
   const [email, onChangeEmail] = useInput('');
@@ -55,18 +55,21 @@ const SignUp = () => {
     [password, setPasswordCheck],
   );
 
-  const mutation = useMutation<IUser, AxiosError, { email: string; password: string; nickname: string }>(
+  const mutation = useMutation<User, AxiosError, { email: string; password: string; nickname: string }>(
     'user',
-    (data) => axios.post('/api/users', data).then((response) => response.data),
-    {
+    (data) => axios.post('/api/v1/users/join ', data,{withCredentials:true,}).then((response) => response.data),
+    {//mutation함수 동작 전 실행함수 
       onMutate() {
         setSignUpError('');
         setSignUpSuccess(false);
       },
+      //mutation 함수 동작 후 실행
       onSuccess() {
         setSignUpSuccess(true);
       },
+      //네트워크 요청 에러시 실행
       onError(error:any) {
+        //에러문구로 state초기화
         setSignUpError(error.response?.data);
       },
     },
@@ -75,26 +78,28 @@ const SignUp = () => {
   const onSubmit = useCallback(
     (e:any) => {
       e.preventDefault();
+      //mismatchErr가 없고 nickname이 있으면 
       if (!mismatchError && nickname) {
         console.log('서버로 회원가입하기');
+        //data posting
         mutation.mutate({ email, nickname, password });
       }
     },
     [email, nickname, password, mismatchError, mutation],
   );
 
-  if (isLoading) {
-    return <div>로딩중...</div>;
-  }
-
-  // if (data) {
-  //   // return <Redirect to="/workspace/sleact/channel/일반" />;
-
+  // if (isLoading) {
+  //   return <div>로딩중...</div>;
   // }
+
+  if (data) {
+    navigate('/home')
+    // return <Redirect to="/workspace/sleact/channel/일반" />;
+  }
 
   return (
     <div id="container">
-      <Header>Sleact</Header>
+      <Header><LogoImg onClick={()=>{navigate('/')}}src="/imgs/logo.png"></LogoImg></Header>
       <Form onSubmit={onSubmit}>
         <Label id="email-label">
           <span>이메일 주소</span>
