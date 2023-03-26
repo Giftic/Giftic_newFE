@@ -29,7 +29,7 @@ export const HeaderSet = () => {
           <LoginButton>
             <div
               onClick={() => {
-                navigate("/login");
+                navigate("/signup");
                 console.log("/login");
               }}
             >
