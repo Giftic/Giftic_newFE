@@ -422,7 +422,8 @@ export const StepLanding1 = () => {
   const navigate = useNavigate();
 
   return (
-    <div css = {Step.container}>
+    <motion.div css = {Step.container}  initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{duration:1}}
+    exit={{ opacity: 0, transition: { duration: 0.3 } }}>
       <HeaderSet></HeaderSet>
         <div css = {css`
         position: absolute;
@@ -444,20 +445,21 @@ export const StepLanding1 = () => {
           <div css={Step.button} onClick={() => {
               navigate("/step2");
             }}></div>
-      </div>
+      </motion.div>
   );
 };
 
 export const StepLanding2 = () => {
   const navigate = useNavigate();
   return (
-    <div style={{
+    <motion.div style={{
       position:"relative", 
       height:"100vh",
       width:"100vw",
       overflow:"hidden",
       background:
-      "linear-gradient(to top, #F1F3EE 0%, #F1F3EE 100%)",}}>
+      "linear-gradient(to top, #F1F3EE 0%, #F1F3EE 100%)",}} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{duration:1}}
+      exit={{ opacity: 0, transition: { duration: 0.3 } }}>
       <HeaderSet></HeaderSet>
       
       <div css = {css`
@@ -495,21 +497,22 @@ export const StepLanding2 = () => {
         onClick={() => {navigate("/step3");
           }}></div>
 
-      </div>
+      </motion.div>
   );
 };
 
 export const StepLanding3 = () => {
   const navigate = useNavigate();
   return (
-    <div style={{
+    <motion.div style={{
       position:"relative", 
       height:"100vh",
       width:"100vw",
       overflow:"hidden",
       background:
       "linear-gradient(to top, #F1F3EE 0%, #F1F3EE 100%)",
-      }}>
+      }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{duration:1}}
+      exit={{ opacity: 0, transition: { duration: 0.3 } }}>
       <HeaderSet></HeaderSet>
       <div 
       css = {css`
@@ -546,7 +549,7 @@ export const StepLanding3 = () => {
         <div css={Step.button} onClick={() => {
             navigate("/home");
           }}></div>
-        </div>
+        </motion.div>
   );
 };
 
