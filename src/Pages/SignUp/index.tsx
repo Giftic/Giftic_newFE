@@ -1,7 +1,6 @@
-// import {css} from '@emotion/react';
-import { User } from '../../@typings/db';
-import useInput from '../../Hooks/useInput';
-// import { IUser } from '@typings/db';
+
+import { User } from '../../@typings/db';import useInput from '../../Hooks/useInput';
+// import { User } from '@typings/db';
 import fetcher from '../../@utils/fetcher';
 import React, { useCallback, useState } from 'react';
 import axios, { AxiosError } from 'axios';
@@ -26,7 +25,7 @@ import { LogoImg } from '../Landing/styles';
 //회원가입 여부 조회 
 const SignUp = () => {
   const navigate = useNavigate();
-  // 로그인상태여부 조회 data(email,nickname,id) | false
+  // 로그인여부 조회 로직(쿠키값O:home 리다이렉트,쿠키x: 회원가입) ) User interface(email,nickname,id) | false
   const { isLoading, isSuccess, status, isError, data, error } = useQuery('user', () =>
     fetcher({ queryKey: '/api/users' }),
   );
@@ -88,13 +87,12 @@ const SignUp = () => {
     [email, nickname, password, mismatchError, mutation],
   );
 
-  // if (isLoading) {
-  //   return <div>로딩중...</div>;
-  // }
-
+  if (isLoading) {
+    return <div>로딩중...</div>;
+  }
+//jwt토큰을 쿠키로 클라이언트에 갖고있다면? 로그인상태이므로 data를 리턴 => 리다이렉트
   if (data) {
     navigate('/home')
-    // return <Redirect to="/workspace/sleact/channel/일반" />;
   }
 
   return (
