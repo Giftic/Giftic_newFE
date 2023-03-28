@@ -12,15 +12,31 @@ import {
   StartText,
   Gifticon,
   LandingBox1,
-  // ArrowIcon
 } from "./styles";
 import { useNavigate} from "react-router-dom";
 import {motion } from "framer-motion";
 import {css} from '@emotion/react';
+import axios from 'axios';
+import { useQueryClient } from 'react-query';
+
+
 
 //헤더 컴포넌트 
 export const HeaderSet = () => {
   const navigate = useNavigate();
+  //쿼리 id로부터 캐시데이터 가져오기
+  const queryClient = useQueryClient();
+  //로그인 상태확인하는 'user'쿼리요청시 캐시된 data 참조
+  const cachedUserData = queryClient.getQueryData('user');
+//[TO BE DONE]: 로그인data가 query에 존재하는 경우만 로그아웃버튼 클릭시 헤더의 쿠키 삭제
+  function logOutAction():void{
+  //캐시된 data( {id,email,username })가 있다면? =로그인상태라면? = 로그out버튼 클릭시 jwt쿠키 삭제후 'home'리다이렉트'
+    if(cachedUserData){
+      delete axios.defaults.headers.common['Cookie'];
+      navigate('/home');
+    }
+  }
+
   return (
     <div>
       <Header>
@@ -29,21 +45,18 @@ export const HeaderSet = () => {
           <LoginButton>
             <div
               onClick={() => {
-                navigate("/signup");
-                console.log("/login");
+                //data가 존재하는 경우만 헤더의 쿠키 삭제 후 로그아웃 하고 'home으로 리다이렉트'
+                logOutAction();
+                navigate("/login");
               }}
             >
-              {true ? "log-in" : "log-out"}
+              { axios.defaults.headers.common['Cookie']? "log-out" : "log-in"}
             </div>
           </LoginButton>
           <SkipButton>
             <div
               onClick={() => {
-                if (true) {
-                  console.log("skip");
-                } else {
-                  navigate("/login");
-                }
+                  navigate("/home");
               }}
             >
               Skip
@@ -78,7 +91,6 @@ const Home = () => {
       <div style={{ width: "100%", height: '100vh' }}>
         <motion.div
           exit={{ opacity: 0, transition: { duration: 0.3 } }}>
-          {/* <AnimatePresence> */}
             <IphoneContainer initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <StartText>
                 <div>
@@ -121,7 +133,6 @@ const Home = () => {
               </StartButton>
               <Iphone></Iphone>
             </IphoneContainer>
-          {/* </AnimatePresence> */}
         </motion.div>
       </div>
     </div>
@@ -138,7 +149,7 @@ export const NextLanding=()=>{
 <HeaderSet></HeaderSet>
 
 {/* gradient 백그라운드(flex-container) */}
-<div /*onClick={()=>{navigate('/')}}*/ css={css`width:100vw;
+<div css={css`width:100vw;
 height: calc(100vh);
 background: rgb(245,246,242);
 background: linear-gradient(180deg, rgba(245,246,242,1) 0%, rgba(255,255,255,1) 100%);
@@ -222,7 +233,7 @@ scale:1;	pointer-events: none;
       <br></br><h1>따뜻한 마음을 나누세요</h1></span>
       </h1>
     </LandingBox1>
- 
+
     <div 
       onClick={() => {
         navigate("/step1");

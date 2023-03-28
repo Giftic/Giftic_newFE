@@ -12,6 +12,7 @@ import{
     Header,
 }from "../Pages/Landing/styles";
 import { useState } from "react";
+import axios from 'axios';
 
 
 const searchBoxStyles = css`
@@ -79,7 +80,7 @@ export const HeaderSet = () => {
                   console.log("/login");
                 }}
               >
-                {true ? "log-in" : "log-out"}
+                { axios.defaults.headers.common['Cookie'] ? "log-out" : "log-in"}
               </div>
             </LoginButton>
           
