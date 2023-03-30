@@ -3,6 +3,7 @@
 import { useNavigate} from "react-router-dom";
 import {motion, Variants} from "framer-motion";
 import {css} from '@emotion/react';
+import axios from 'axios';
 
 import{
     LogoImg,
@@ -12,11 +13,18 @@ import{
     Header,
 }from "../Pages/Landing/styles";
 
-import { useState } from "react";
-import axios from 'axios';
+import { 
+  contentStyle,
+  hoverSearchBoxStyles,  
+  leftSidebarStyles,  
+  rightSidebarStyles,  
+  searchBoxStyles, 
+  PostBox, 
+  categoryBox,
+  profileBox,
+  leaderBoard
+} from "./styles";
 
-
-import { contentStyles, hoverSearchBoxStyles,  leftSidebarStyles,  rightSidebarStyles,  searchBoxStyles, } from "./styles";
 import React, { useState, useEffect } from 'react';
 import styled from "@emotion/styled";
 
@@ -73,7 +81,28 @@ export const HeaderSet = () => {
     );
   };
 
-
+  export const LeftSideBar = () =>{
+    return(
+      <div>
+        <aside css={leftSidebarStyles}>
+          <div css = {categoryBox}>CategoryBox</div>
+        </aside>
+      </div>
+    );
+  
+  };
+  
+  export const RightSideBar = () =>{
+    return(
+      <div>
+      <aside css={rightSidebarStyles}>
+        <div css = {profileBox}>ProfileBox</div>
+        <div css = {leaderBoard}>leaderBoard</div>
+      </aside>
+    </div>
+    );
+  };
+  
 
 
 
@@ -90,15 +119,17 @@ export const HeaderSet = () => {
         display: flex;
         flex-direction: row;
       `}>
-        <aside css={leftSidebarStyles}>
-          {/* 사이드바 내용 */}
-        </aside>
-        <aside css={rightSidebarStyles}>
-          {/* 사이드바 내용 */}
-        </aside>
-        <div css={contentStyles}>
-          <div>abcdefg</div>
-        </div>
+        <LeftSideBar></LeftSideBar>
+            <RightSideBar></RightSideBar>
+            <div css={contentStyle}>
+              <div css = {PostBox}></div>
+              <div css = {PostBox}></div>
+              <div css = {PostBox}></div>
+              <div css = {PostBox}></div>
+              <div css = {PostBox}></div>
+              <div css = {PostBox}></div>
+              
+            </div>
       </div>
     </div>
       </div>

@@ -6,7 +6,9 @@ position: 'fixed',
 height:'auto',
 display:'flex',
 justifyContent:'space-between',
-padding: '0 6.5%',zIndex: '0'});
+padding: '0 6.5%',
+backgroundColor: '#F1F3EE',
+zIndex: '100'});
 
 
   

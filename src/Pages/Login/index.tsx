@@ -1,5 +1,5 @@
 import useInput from '../../Hooks/useInput';
-import { Success, Form, Error, Label, Input, LinkContainer, Button, Header } from '../SignUp/styles';
+import { Success, Form, Error, Label, Input, LinkContainer, Button, Header } from './styles';
 import { User } from '../../@typings/db';
 import fetcher from '../../@utils/fetcher';
 import axios, { AxiosError } from 'axios';

@@ -9,7 +9,7 @@ import {
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Main from "./components/main";
-import SignUp from "./Pages/SignUp";
+import SignUp from "./Pages/Login";
 import LogIn from "./Pages/Login";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { RecoilRoot } from "recoil";
