@@ -2,17 +2,17 @@ import styled from '@emotion/styled';
 import {motion} from 'framer-motion';
 //Header
 export const Header = styled.div({width:'87vw',
+position: 'fixed',
 height:'auto',
 display:'flex',
 justifyContent:'space-between',
-position:'absolute',
 padding: '0 6.5%',zIndex: '0'});
 
 
   
 //giftic 로고이미지
-export const LogoImg = styled.img({width:'120px', 
-height:'70px', padding:'2rem 0px'});
+export const LogoImg = styled.img({width:'90px', 
+ padding:'2rem 0px'});
 
 //로그인화면 이동버튼 useNavigate('/login') e.handler달기;
 export const LoginButton = styled.div({color:'#B3C79D',
