@@ -11,26 +11,10 @@ import{
     LoginSkipContainer,
     Header,
 }from "../Pages/Landing/styles";
-import { useState } from "react";
 
-
-const searchBoxStyles = css`
-  width: 600px;
-  height: 30px;
-  border-radius: 100px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  font-size: 16px;
-`;
-
-const hoverSearchBoxStyles = css`
-  width: 620px;
-  height: 35px;
-  border-radius: 120px;
-  border: 2px solid #333;
-  padding: 15px;
-  font-size: 18px;
-`;
+import { contentStyles, hoverSearchBoxStyles,  leftSidebarStyles,  rightSidebarStyles,  searchBoxStyles, } from "./styles";
+import React, { useState, useEffect } from 'react';
+import styled from "@emotion/styled";
 
 const searchBoxVariants: Variants = {
   default: {
@@ -52,7 +36,6 @@ export function SearchBox() {
     <motion.input
       type="text"
       css={isHovered ? hoverSearchBoxStyles : searchBoxStyles}
-      placeholder="Search"
       variants={searchBoxVariants}
       initial="default"
       whileHover="hover"
@@ -61,8 +44,6 @@ export function SearchBox() {
     />
   );
 }
-
-
 
 export const HeaderSet = () => {
     const navigate = useNavigate();
@@ -78,28 +59,45 @@ export const HeaderSet = () => {
                   navigate("/login");
                   console.log("/login");
                 }}
-              >
+                >
                 {true ? "log-in" : "log-out"}
               </div>
             </LoginButton>
-          
           </LoginSkipContainer>
         </Header>
       </div>
     );
   };
+
+
+
+
+
+
+
   const Main = () => {
     return(
-        <div css = {css`background: linear-gradient(to top, #FFFFFF 0%, #F1F3EE 100%);
+        <div css = {css`
+        background: linear-gradient(to top, #FFFFFF 0%, #F1F3EE 100%);
         height: 100vh;`}>
-            <HeaderSet></HeaderSet>
+            <div>
+      <HeaderSet></HeaderSet>
+      <div css={css`
+        display: flex;
+        flex-direction: row;
+      `}>
+        <aside css={leftSidebarStyles}>
+          {/* 사이드바 내용 */}
+        </aside>
+        <aside css={rightSidebarStyles}>
+          {/* 사이드바 내용 */}
+        </aside>
+        <div css={contentStyles}>
+          <div>abcdefg</div>
         </div>
-        
+      </div>
+    </div>
+      </div>
     );
 };
-
-
-
 export default Main;
-
-
