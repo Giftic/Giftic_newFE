@@ -12,6 +12,10 @@ import{
     Header,
 }from "../Pages/Landing/styles";
 
+import { useState } from "react";
+import axios from 'axios';
+
+
 import { contentStyles, hoverSearchBoxStyles,  leftSidebarStyles,  rightSidebarStyles,  searchBoxStyles, } from "./styles";
 import React, { useState, useEffect } from 'react';
 import styled from "@emotion/styled";
@@ -59,8 +63,8 @@ export const HeaderSet = () => {
                   navigate("/login");
                   console.log("/login");
                 }}
-                >
-                {true ? "log-in" : "log-out"}
+              >
+                { axios.defaults.headers.common['Cookie'] ? "log-out" : "log-in"}
               </div>
             </LoginButton>
           </LoginSkipContainer>
